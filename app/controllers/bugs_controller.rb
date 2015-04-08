@@ -90,8 +90,10 @@ class BugsController < ApplicationController
   end
     
   def close
+  
     @bug = Bug.find(params[:id])
     @bug.done = true
+    @bug.save
     
     redirect_to bugs_url
   end

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   
   resources :bugs
   
-  match 'bugs/:id/close' => 'bugs#close', via: [:patch, :put], as: :bugs_close
+  match 'bugs/:id/close' => 'bugs#close', via: [:get, :patch, :put], as: :bug_close
+  #patch 'bugs/:id/close' => 'bugs#close', as: :bug_close
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

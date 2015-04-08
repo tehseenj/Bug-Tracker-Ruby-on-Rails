@@ -37,7 +37,7 @@
      <td>
       <div class="btn-group" role="group" aria-label="...">
        <button type="button" class="btn btn-default"><%= link_to "Edit", edit_bug_path(i) %></button>
-       <button type="button" class="btn btn-default"><%= link_to "Close", bugs_close_path(:id => i.id) %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Close", bug_close_path(:id => i.id) %></button> <!-- bug_close_path(:id => i.id) -->
        <button type="button" class="btn btn-default"> <%= link_to "Delete", i, method: :delete, data: { confirm: "You sure?" } %></button>
        <button type="button" class="btn btn-default" ><%= link_to "View", bug_path(i)%> </button>
       </div>
