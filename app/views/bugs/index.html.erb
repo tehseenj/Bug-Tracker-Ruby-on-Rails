@@ -1,0 +1,71 @@
+
+
+<br>
+<br>
+<br>
+
+
+<% #@bugs = @bugs.precedense.order("id DESC").all %>
+
+<div class = "list_of_bugs">
+
+<table class = "table table-striped">
+
+<thead>
+    <tr>
+     <th>ID</th>
+     <th>PRIORITY</th>    
+     <th>NAME</th>   
+     <th>CREATED</th> 
+     <th>UPDATED</th>
+     <th>RESOLVED</th>
+     <th>OPTIONS</th>
+    </tr>
+</thead> 
+
+ <tbody>
+    
+    
+    <% @bugs.each do |i| %>
+    <tr>
+     <td><%= i.id %></td>
+     <td><%= i.precedense %></td>
+     <td><%= i.name %></td>
+     <td><%= i.created_at %></td> 
+     <td><%= i.updated_at %></td>
+     <td><%= i.done %></td>
+     <td>
+      <div class="btn-group" role="group" aria-label="...">
+       <button type="button" class="btn btn-default"><%= link_to "Edit", edit_bug_path(i) %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Close", bugs_close_path(:id => i.id) %></button>
+       <button type="button" class="btn btn-default"> <%= link_to "Delete", i, method: :delete, data: { confirm: "You sure?" } %></button>
+       <button type="button" class="btn btn-default" ><%= link_to "View", bug_path(i)%> </button>
+      </div>
+     </td>
+    </tr
+    <% end %>
+    
+ </tbody>
+    
+</table>
+
+<button type="button" class="btn btn-success"> <%= link_to "New Bug", new_bug_path %> </button>
+
+
+<br>
+<br> <!-- please learn css -->
+<br>
+
+<div class="form-group">
+  <label for="comment">Log:</label>
+  <textarea class="form-control" rows="10" id="comment" disabled>
+   
+     <% @logs.each do |i| %>
+     <%= i.a_log %>
+     <% end %>
+  </textarea>
+</div>
+
+
+</div>
+

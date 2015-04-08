@@ -1,0 +1,44 @@
+<br>
+<br> <!-- icant css -->
+<br>
+
+<h1>Bugs#new</h1>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+       <%= form_for(@bug) do |f| %> <!-- form_for helper method takes a Active Record Object (user which is initialized but null attributes) and constructs a form to fill it-->
+      <% if @bug.errors.any? %>
+    <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@bug.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @bug.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+       
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+        
+      <%= f.label :precedense %>
+ 
+<select name="bug[precedense]">
+  <option value="">Please select</option>
+  <option value="Low" selected="selected">Low</option>
+  <option value="Medium">Medium</option>
+  <option value="High">High</option>
+</select>
+     
+      
+      <%= f.submit "Submit a new Bug", class: "btn btn-primary" %>  <!--<form action="/bugs" class="new_bug" id="new_bug" method="post"> -->
+    
+       
+       <% end %>
+  </div>
+</div>

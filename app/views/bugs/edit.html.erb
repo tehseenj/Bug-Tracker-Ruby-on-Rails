@@ -1,0 +1,33 @@
+<br>
+<br> <!-- icant css -->
+<br>
+
+<h1>Update the Bug</h1>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+       <%= form_for(@bug) do |f| %> <!-- form_for helper method takes a Active Record Object (user which is initialized but null attributes) and constructs a form to fill it-->
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+       
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+        
+      <%= f.label :precedense %>
+      <select name="bug[precedense]">
+  <option value="">Please select</option>
+  <option value="Low" selected="selected">Low</option>
+  <option value="Medium">Medium</option>
+  <option value="High">High</option>
+</select>
+     
+      
+      
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    
+       
+       <% end %>
+  </div>
+</div>
